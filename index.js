@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
   res.send("App is running");
 });
 
-app.post("/register", async (req, res) => {
+app.post("/user/register", async (req, res) => {
   const { name, email, gender, password, age, city, is_married } = req.body;
   try {
     const new_user = new UserModel({
@@ -41,7 +41,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
-app.post("/login", async (req, res) => {
+app.post("/user/login", async (req, res) => {
   const { email, password } = req.body;
   const user = await UserModel.findOne({ email, password });
   if (!user) {
